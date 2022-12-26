@@ -1,0 +1,27 @@
+
+.side-bar {
+	display: flex;
+	flex-direction: column;
+    background: var(--secondary-bg-color);
+    color: var(--secondary-color);
+	min-height: 100vh;
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.guild-name {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-bottom: 8px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 0px, rgb(0 0 0 / 6%) 0px 2px 0px;
+    color: var(--main-color);
+}
+
+.guild-name span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

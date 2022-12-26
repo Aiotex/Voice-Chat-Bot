@@ -1,0 +1,3 @@
+
+
+disconnectBtn.click(() => { leaveCall(); })

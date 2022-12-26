@@ -1,0 +1,21 @@
+{
+  "name": "live-channel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "github:discordjs/opus",
+    "audio-mixer": "^2.1.4",
+    "bootstrap": "^3.4.1",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "electron": "^22.0.0",
+    "speaker": "^0.5.4"
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/guilds.css">
+    <link rel="stylesheet" href="../public/css/sideBar.css">
+    <link rel="stylesheet" href="../public/css/voiceCall.css">
+    <link rel="stylesheet" href="../public/libs/noty/noty.css">
+    <link rel="stylesheet" href="../public/libs/noty/metroui.css">
+    <title>Bot Panel</title> 
+</head>
+<body>
+    <!-- Preloader -->
+	<div class="preloader">
+		<div class="loader">
+			<img src="../public/assets/images/loading.gif">
+		</div>
+	</div>
+
+
+    <div class="app">
+
+        <!-- Guilds -->
+        <nav class="guilds-container">
+            <div class="squircle" id="about-btn">
+                <img class="icon discord-icon" src="../public/assets/images/discordlogo.png">
+                <div class="tooltip"><span>About</span></div>
+            </div>
+        
+            <div class="divider"></div>
+        </nav>
+
+        <!-- Channels -->
+        <nav class="side-bar">
+            <div class="guild-name"><span class="no-wrap" id="guild-name">About</span></div>
+            <div class="channels-container"></div>
+        </nav>
+
+        
+        <main class="channel-content">
+            <div class="no-connection">
+                <span>Not connected to a voice call</span>
+            </div>
+
+            <!-- Call -->
+            <div class="voice-call" style="display: none;">
+                <div class="main-btn channel">
+                    <img class="icon voicechannel-icon" src="../public/assets/images/voicechannel.png">
+                    <span id="voice-channel-name"></span>
+                </div>
+
+                <div class="participants"></div>
+
+                <div class="disconnect-btn">
+                    <img class="icon disconnect-icon" src="../public/assets/images/disconnect.png">
+                </div>
+            </div>
+        </main> 
+    </div>
+    
+
+    <!-- Scripts -->
+    <script>window.$ = window.jQuery = require('../public/libs/jquery/jquery.min.js');</script>
+    <script type="text/javascript" src="../public/libs/noty/noty.min.js"></script>
+    <script type="text/javascript" src="../public/js/log.js"></script>
+    <script type="text/javascript" src="../public/js/login.js"></script>
+    <script type="text/javascript" src="../public/js/constants.js"></script>
+
+    <script type="text/javascript" src="../public/js/functions.js"></script>
+    <script type="text/javascript" src="../public/js/audioStreaming.js"></script>
+    <script type="text/javascript" src="../public/js/discordEvents.js"></script>
+    <script type="text/javascript" src="../public/js/buttonEvents.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+:root {
+    --bg-color: #36393f;
+    --secondary-bg-color: #2f3136;
+    --main-color: #ffffff;
+    --blue-color: #6370f4;
+    --green-color: #3a9758;
+    --red-color: #d83c3e;
+    --secondary-color: #8e9297;
+    --nav-bar-bg-color: #282424;
+    --nav-bar-tooltip-color: #18191c;
+}
+
+@font-face {
+    font-family: "Whitney";
+    font-weight: 600;
+    src: url("../assets/fonts/Whitney-Normal-600.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Whitney";
+    font-weight: 700;
+    src: url("../assets/fonts/Whitney-Normal-700.woff2") format("woff2");
+}
+
+* {
+	box-sizing: border-box;
+    font-family: "Whitney", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+}
+
+.app {
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+}
+
+.preloader {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10000;
+	background: #24262c;
+	text-align: center;
+	padding-top: calc(50vh - 45px);
+	transition: 0.25s;
+	display: block;
+}
+
+.preloader img {
+    width: 115px;
+    height: auto;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.loader span {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.icon {
+    filter: invert(100%) sepia(0%) saturate(5496%) hue-rotate(77deg) brightness(113%) contrast(107%);
+}
+
+.voicechannel-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(64%) sepia(13%) saturate(121%) hue-rotate(173deg) brightness(89%) contrast(88%);
+}
+
+.disconnect-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.discord-icon {
+    width: 28px !important;
+    border-radius: 0 !important;
+}
+
+.main-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 15px 6px 8px;
+    margin: 0 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.main-btn span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.main-btn:hover span {
+    color: var(--main-color);
+}
