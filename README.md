@@ -2,8 +2,8 @@
 A demo for a discord bot panel that allows you to hear pepole live in a voice channel
 
 ## Requirements
-- Node.js
-- npm
+- [node.js](https://nodejs.org/en/download/)
+- Follow the installation process for [node-gyp](https://github.com/nodejs/node-gyp)
 
 ## Getting Started
 1. Clone this repository: `git clone https://github.com/Aiotex/discord-live-channel.git`
