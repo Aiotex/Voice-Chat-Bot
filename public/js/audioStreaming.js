@@ -16,6 +16,9 @@ mixer.pipe(speaker);
 
 async function streamChannelAudio(channelId) {
     if(connection) await leaveCall();
+    muteBtn.removeClass("mute-btn").addClass("unmute-btn")
+    muteBtn.children('img').attr('src', '../public/assets/images/unmute.png');
+    muted = true;
 
     voiceChannel = client.channels.cache.get(channelId);
     connection = getVoiceConnections().get(voiceChannel.guild.id);
