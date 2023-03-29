@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/styles.css">
-    <link rel="stylesheet" href="../public/css/guilds.css">
-    <link rel="stylesheet" href="../public/css/sideBar.css">
-    <link rel="stylesheet" href="../public/css/voiceCall.css">
     <link rel="stylesheet" href="../public/libs/noty/noty.css">
     <link rel="stylesheet" href="../public/libs/noty/metroui.css">
     <title>Bot Panel</title> 
@@ -22,7 +19,6 @@
 
 
     <div class="app">
-
         <!-- Guilds -->
         <nav class="guilds-container">
             <div class="squircle" id="about-btn">
@@ -40,22 +36,30 @@
         </nav>
 
         
-        <main class="channel-content">
-            <div class="no-connection">
-                <span>Not connected to a voice call</span>
-            </div>
+        <main class="voice-call-wrapper">
+            <span class="no-connection-msg">Not connected to a voice call</span>
 
             <!-- Call -->
-            <div class="voice-call" style="display: none;">
-                <div class="main-btn channel">
+            <div class="voice-call-content hidden">
+                <div class="current-channel-name">
                     <img class="icon voicechannel-icon" src="../public/assets/images/voicechannel.png">
                     <span id="voice-channel-name"></span>
                 </div>
 
                 <div class="participants"></div>
 
-                <div class="disconnect-btn">
-                    <img class="icon disconnect-icon" src="../public/assets/images/disconnect.png">
+                <div class="bottom-controls">
+                    <div id="deafen-btn" class="bottom-control-btn deafen-btn">
+                        <img src="../public/assets/images/deafen.png">
+                    </div>
+                    
+                    <div id="mute-btn" class="bottom-control-btn unmute-btn">
+                        <img src="../public/assets/images/unmute.png">
+                    </div>
+
+                    <div id="disconnect-btn" class="bottom-control-btn disconnect-btn">
+                        <img src="../public/assets/images/disconnect.png">
+                    </div>
                 </div>
             </div>
         </main> 
@@ -71,6 +75,7 @@
 
     <script type="text/javascript" src="../public/js/functions.js"></script>
     <script type="text/javascript" src="../public/js/audioStreaming.js"></script>
+    <script type="text/javascript" src="../public/js/speaking.js"></script>
     <script type="text/javascript" src="../public/js/discordEvents.js"></script>
     <script type="text/javascript" src="../public/js/buttonEvents.js"></script>
 </body>

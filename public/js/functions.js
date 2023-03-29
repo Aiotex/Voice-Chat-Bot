@@ -8,8 +8,8 @@ function updateChannels(guildId) {
     channels.empty();
 
     voiceChannels.forEach(channel => {
-        const e = $(`<div class="main-btn" data-id="${channel.id}">${voiceChannelIcon}<span>${channel.name}</span></div>`);
-        e.click(() => { streamAudio(e.data("id")); });
+        const e = $(`<div class="channel-btn" data-id="${channel.id}">${voiceChannelIcon}<span>${channel.name}</span></div>`);
+        e.click(() => { streamChannelAudio(e.data("id")); });
         channels.append(e);
     });  
 }
@@ -18,15 +18,23 @@ function updateChannels(guildId) {
 // Functions for managing the channel display:
 function addParticipant(userId) {
     const user = client.users.cache.get(userId);
-    participants.append(`<div class="participant main-btn" data-id=${user.id}><img src="${user.displayAvatarURL()}"><span>${user.username}</span></div>`);
-    voiceCall.show();
-    noConnection.hide();
-    joinSoundEffect.play();
+    const avatarURL = user.displayAvatarURL();
+
+    fac.getColorAsync(avatarURL)
+    .then(color => {
+        participants.append(`<div class="participant" style="background-color: ${color.hex}" data-id=${user.id}><img src="${avatarURL}"><span>${user.username}</span></div>`);
+    })
+    .catch(e => {
+        console.log(e);
+    });
+    
+    voiceCallContent.removeClass("hidden")
+    //joinSoundEffect.play();
 }
 
 function removeParticipant(userId) {
     participants.find(`.participant[data-id="${userId}"]`).remove();
-    leaveSoundEffect.play();
+    //leaveSoundEffect.play();
 }
 
 function setSpeaking(userId, speaking) {
@@ -35,9 +43,11 @@ function setSpeaking(userId, speaking) {
     else participants.find(e).removeClass("speaking");  
 }
 
-function leaveCall() {
+async function leaveCall() {
     participants.empty();
-    voiceCall.hide();
-    noConnection.show();
-    try { connection.destroy(); } catch(err) { console.log(err); }
+    voiceCallContent.addClass("hidden")
+
+    try { connection.destroy(); } catch(e) { console.log(e) } 
+    await entersState(connection, VoiceConnectionStatus.Destroyed, 20e3);
+    console.log(`Left \"${voiceChannel.name}\"`); 
 }

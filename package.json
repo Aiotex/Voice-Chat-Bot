@@ -12,10 +12,12 @@
   "dependencies": {
     "@discordjs/opus": "github:discordjs/opus",
     "audio-mixer": "^2.1.4",
-    "bootstrap": "^3.4.1",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "electron": "^22.0.0",
+    "fast-average-color": "^9.3.0",
+    "microphone-stream": "^6.0.1",
+    "node-mic-record": "^0.0.1",
     "speaker": "^0.5.4"
   }
 }

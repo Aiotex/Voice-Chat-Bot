@@ -1,13 +1,14 @@
 
 :root {
     --bg-color: #36393f;
-    --secondary-bg-color: #2f3136;
+    --secondary-bg-color: #2b2d31;
+    --voice-call-bg-color: #000000;
     --main-color: #ffffff;
     --blue-color: #6370f4;
     --green-color: #3a9758;
     --red-color: #d83c3e;
     --secondary-color: #8e9297;
-    --nav-bar-bg-color: #282424;
+    --nav-bar-bg-color: #1e1f22;
     --nav-bar-tooltip-color: #18191c;
 }
 
@@ -34,7 +35,6 @@
 
 body {
     background-color: var(--bg-color);
-    color: var(--main-color);
 }
 
 .app {
@@ -43,6 +43,9 @@ body {
     width: 100%;
 }
 
+.hidden {display: none !important;}
+
+/* Preloader */
 .preloader {
 	position: fixed;
 	top: 0;
@@ -76,19 +79,11 @@ body {
     font-size: 16px;
 }
 
+/* Icons */
 .icon {
+    width: 22px;
+    height: 22px;
     filter: invert(100%) sepia(0%) saturate(5496%) hue-rotate(77deg) brightness(113%) contrast(107%);
-}
-
-.voicechannel-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(64%) sepia(13%) saturate(121%) hue-rotate(173deg) brightness(89%) contrast(88%);
-}
-
-.disconnect-icon {
-    width: 24px;
-    height: 24px;
 }
 
 .discord-icon {
@@ -96,7 +91,48 @@ body {
     border-radius: 0 !important;
 }
 
-.main-btn {
+.voicechannel-icon {
+    filter: invert(64%) sepia(13%) saturate(121%) hue-rotate(173deg) brightness(89%) contrast(88%);
+}
+
+
+/* Buttons */
+.bottom-control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 8px;
+    border-radius: 100vh;
+    background: var(--secondary-bg-color);
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.bottom-control-btn img {
+    width: 22px;
+    height: 22px;
+    filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(214deg) brightness(116%) contrast(100%);
+}
+
+.disconnect-btn {
+    background-color: var(--red-color);
+}
+
+.unmute-btn, .undeafen-btn  {
+    background-color: var(--main-color);
+}
+
+.unmute-btn img, .undeafen-btn img  {
+    filter: invert(0%) sepia(97%) saturate(13%) hue-rotate(270deg) brightness(90%) contrast(105%);
+}
+
+.mute-btn:hover, .deafen-btn:hover  {
+    filter: brightness(80%);
+}
+
+.channel-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -107,17 +143,216 @@ body {
     cursor: pointer;
 }
 
-.main-btn span {
+.channel-btn span {
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.main-btn:hover {
+.channel-btn:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.main-btn:hover span {
+.channel-btn:hover span {
     color: var(--main-color);
+}
+
+
+/* Voice Call */
+.voice-call-wrapper {
+    background-color: var(--voice-call-bg-color);
+    color: var(--secondary-color);
+    position: relative;
+    width: 100%;
+}
+
+.no-connection-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary-color);
+    font-weight: 400;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.voice-call-content {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 56px calc(100% - 112px) 56px;
+    background-color: var(--voice-call-bg-color);
+    padding: 12px 20px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    z-index: 2;
+}
+
+.current-channel-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secondary-color);
+    width: 100%;
+}
+
+.bottom-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.participants {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8px 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    min-width: 0;
+    gap: 8px;
+}
+
+.participant {
+    position: relative;
+    border-radius: 8px;
+    padding-top: calc((9 / 16) * 33%);
+    flex: 0 0 calc(33% - 8px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.participant span {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: var(--main-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.participant img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 100vh;
+}
+
+.speaking {
+    outline: 3px solid var(--green-color);
+    outline-offset: -3px;
+}
+
+
+/* Side Bar: https://github.com/theteachr/discord-frontend-replica */
+.side-bar {
+	display: flex;
+	flex-direction: column;
+    background: var(--secondary-bg-color);
+    color: var(--secondary-color);
+	min-height: 100vh;
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.guild-name {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-bottom: 8px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 0px, rgb(0 0 0 / 6%) 0px 2px 0px;
+    color: var(--main-color);
+}
+
+.guild-name span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.guilds-container {
+    z-index: 99;
+	background: var(--nav-bar-bg-color);
+    color: var(--main-color);
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	gap: 8px;
+}
+
+.squircle {
+	background: rgba(255, 255, 255, 0.1);
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	transition: all 200ms;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.squircle:hover {
+	border-radius: 36%;
+    background: var(--blue-color);
+}
+.squircle:hover .tooltip {
+	opacity: 1;
+	transform: translateY(-50%) scale(1);
+}
+
+.divider {
+	width: 100%;
+	background: var(--main-color);
+	height: 2px;
+	border-radius: 1px;
+	opacity: .06;
+	transform: scale(.75);
+}
+
+.tooltip {
+	background: var(--nav-bar-tooltip-color);
+	padding: 0.68rem 1rem;
+	position: absolute;
+	top: 50%;
+	left: 155%;
+	transform-origin: left;
+	transform: translateY(-50%) scale(0.98);
+	width: max-content;
+	max-width: 256px;
+	border-radius: 4px;
+	opacity: 0;
+	transition: opacity 64ms, transform 128ms cubic-bezier(0.43, 0.09, 0.38, 2.56);
+	pointer-events: none;
+	color: var(--color-full-white);
+}
+
+.tooltip::before {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+	background: var(--nav-bar-tooltip-color);
+	width: 24px;
+	height: 24px;
+	z-index: -1;
+}
+
+.squircle img {
+	width: inherit;
+	border-radius: inherit;
 }
