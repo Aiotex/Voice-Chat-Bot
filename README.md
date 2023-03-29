@@ -3,6 +3,7 @@ A demo for a discord bot panel that allows you to hear pepole live in a voice ch
 
 ## Requirements
 - [node.js](https://nodejs.org/en/download/)
+- [SoX](https://sourceforge.net/projects/sox/files/latest/download)
 - Follow the installation process for [node-gyp](https://github.com/nodejs/node-gyp)
 
 ## Getting Started
