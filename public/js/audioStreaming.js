@@ -15,7 +15,7 @@ const speaker = new Speaker({
 mixer.pipe(speaker);
 
 async function streamChannelAudio(channelId) {
-    if(connection) await leaveCall();
+    if(connection) leaveCall();
     muteBtn.removeClass("mute-btn").addClass("unmute-btn")
     muteBtn.children('img').attr('src', '../public/assets/images/unmute.png');
     muted = true;

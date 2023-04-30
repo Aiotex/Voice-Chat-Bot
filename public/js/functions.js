@@ -19,16 +19,16 @@ function updateChannels(guildId) {
 function addParticipant(userId) {
     const user = client.users.cache.get(userId);
     const avatarURL = user.displayAvatarURL();
-
-    fac.getColorAsync(avatarURL)
-    .then(color => {
-        participants.append(`<div class="participant" style="background-color: ${color.hex}" data-id=${user.id}><img src="${avatarURL}"><span>${user.username}</span></div>`);
-    })
-    .catch(e => {
-        console.log(e);
-    });
     
-    voiceCallContent.removeClass("hidden")
+    participants.append(`<div class="participant" data-id="${userId}"><div class="content"><img src="${avatarURL}"><span>${user.username}</span></div></div>`);
+    const avatarImg = $(`.participant[data-id="${userId}"] img`);
+
+    avatarImg.on("load", () => {
+        const color = colorThief.getColor(avatarImg[0]);
+        $(`.participant[data-id="${userId}"] .content`).css("background-color", `rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+    })
+
+    voiceCallContent.removeClass("hidden");
     //joinSoundEffect.play();
 }
 
@@ -38,16 +38,14 @@ function removeParticipant(userId) {
 }
 
 function setSpeaking(userId, speaking) {
-    const e = `.participant[data-id="${userId}"]`;
+    const e = `.participant[data-id="${userId}"] .content`;
     if(speaking) participants.find(e).addClass("speaking");
     else participants.find(e).removeClass("speaking");  
 }
 
-async function leaveCall() {
+function leaveCall() {
     participants.empty();
-    voiceCallContent.addClass("hidden")
-
-    try { connection.destroy(); } catch(e) { console.log(e) } 
-    await entersState(connection, VoiceConnectionStatus.Destroyed, 20e3);
+    voiceCallContent.addClass("hidden");
+    connection.disconnect();
     console.log(`Left \"${voiceChannel.name}\"`); 
 }

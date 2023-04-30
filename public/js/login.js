@@ -1,8 +1,8 @@
-require("dotenv").config();
-const config = require("../config.json");
 const { Client, GatewayIntentBits } = require("discord.js");
-
-const token = process.env.TOKEN || config.token;
+const loadingGif = $('.preloader video');
+const tokenInputContainer = $('.token-input-container');
+const tokenInput = $('.token-input');
+const submitTokenBtn = $('.submit-token-btn');
 
 const client = new Client({
     intents: [
@@ -13,12 +13,27 @@ const client = new Client({
     ]
 });
 
-client.login(token).then()
-    .then(() => {
-    console.log(`Succecfuly logged in as ${client.user.username}`);
-    setTimeout(() => {$(".preloader").fadeOut(200); }, 1000);
+const login = (token) => {
+    tokenInputContainer.addClass('hidden');
+    loadingGif.removeClass('hidden');
+
+    client.login(token).then()
+        .then(() => {
+        console.log(`Succecfuly logged in as ${client.user.username}`);
+        setTimeout(() => {$(".preloader").fadeOut(200); }, 1000);
+    })
+        .catch((err) => {
+        console.log(err);
+        tokenInputContainer.removeClass('hidden');
+        loadingGif.addClass('hidden');
+        errorNotification("Please enter a valid token in the input box");
+    });
+}
+
+submitTokenBtn.click(() => {
+    const token = tokenInput.val()
+    localStorage.setItem("token", token);
+    login(token);
 })
-    .catch((err) => {
-    console.log(err);
-    errorNotification("Please enter a valid token in config.json, exit the app and try again");
-});
+
+tokenInput.val(localStorage.getItem("token"));

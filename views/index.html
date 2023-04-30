@@ -12,18 +12,23 @@
 <body>
     <!-- Preloader -->
 	<div class="preloader">
-		<div class="loader">
-			<img src="../public/assets/images/loading.gif">
-		</div>
+        <video class="hidden" autoplay loop muted src="../public/assets/images/loading.webm"></video>
+        
+        <div class="token-input-container">
+            <h1 class="header">Enter your token</h1>
+            <div style="display: flex; gap: 6px;">
+                <input class="token-input" type="text" placeholder="Token" spellcheck="false">
+                <button class="submit-token-btn"></button>
+            </div>
+        </div> 
 	</div>
-
 
     <div class="app">
         <!-- Guilds -->
         <nav class="guilds-container">
             <div class="squircle" id="about-btn">
                 <img class="icon discord-icon" src="../public/assets/images/discordlogo.png">
-                <div class="tooltip"><span>About</span></div>
+                <div class="tooltip"><span>Select A Server</span></div>
             </div>
         
             <div class="divider"></div>
@@ -31,7 +36,7 @@
 
         <!-- Channels -->
         <nav class="side-bar">
-            <div class="guild-name"><span class="no-wrap" id="guild-name">About</span></div>
+            <div class="guild-name"><span class="no-wrap" id="guild-name">Select a server</span></div>
             <div class="channels-container"></div>
         </nav>
 
@@ -41,9 +46,15 @@
 
             <!-- Call -->
             <div class="voice-call-content hidden">
-                <div class="current-channel-name">
-                    <img class="icon voicechannel-icon" src="../public/assets/images/voicechannel.png">
-                    <span id="voice-channel-name"></span>
+
+                <div class="voice-call-info">
+                    <div class="channel-info">
+                        <img class="icon voice-channel-icon" src="../public/assets/images/voicechannel.png">
+                        <span id="voice-channel-name"></span>
+                    </div>
+                    <span class="hidden" id="latency">0ms
+                        <div class="tooltip"><span>The time it takes for sound to play in Discord</span></div>
+                    </span>
                 </div>
 
                 <div class="participants"></div>
@@ -68,6 +79,7 @@
 
     <!-- Scripts -->
     <script>window.$ = window.jQuery = require('../public/libs/jquery/jquery.min.js');</script>
+    <script type="text/javascript" src="https://jaromvogel.com/js/color-thief.min.js"></script>
     <script type="text/javascript" src="../public/libs/noty/noty.min.js"></script>
     <script type="text/javascript" src="../public/js/log.js"></script>
     <script type="text/javascript" src="../public/js/login.js"></script>

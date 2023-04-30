@@ -1,0 +1,2 @@
+SETCONSOLE /hide
+npm start

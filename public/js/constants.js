@@ -5,13 +5,12 @@ const record = require('node-mic-record');
 const AudioMixer = require('audio-mixer');
 const Speaker = require("speaker");
 const fs = require('fs')
-const FastAverageColor = require('fast-average-color').FastAverageColor;
-const fac = new FastAverageColor();
+const colorThief = new ColorThief();
 
 // Variables
-const voiceChannelIcon = `<img class="icon voicechannel-icon" src="../public/assets/images/voicechannel.png">`;
+const voiceChannelIcon = `<img class="icon voice-channel-icon" src="../public/assets/images/voicechannel.png">`;
 
-const aboutBtn = $('#about-btn')
+const aboutBtn = $('#about-btn');
 
 const guilds = $('.guilds-container');
 const guildName = $('#guild-name');
@@ -30,6 +29,7 @@ const joinSoundEffect = new Audio('../public/assets/sounds/join.wav');
 const leaveSoundEffect = new Audio('../public/assets/sounds/leave.wav');
 
 // Voice call
+const latency = $('#latency');
 let connection;
 let voiceChannel;
 let muted = true;
