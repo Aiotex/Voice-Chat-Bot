@@ -8,8 +8,8 @@ This is a discord bot panel that allows you to use a bot like a normal user in a
 
 ## Getting Started
 1. Open the command line prompt and clone the repository: `git clone https://github.com/Aiotex/discord-live-channel.git`
-2. run `npm i`
-3. run `npm start`
+2. Run `npm i`
+3. Click on the `run.bat` file
 4. [Create a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html) and paste the token in the input nox
 
 
