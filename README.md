@@ -8,9 +8,9 @@ This is a discord bot panel that allows you to use a bot like a normal user in a
 
 ## Getting Started
 1. Open the command line prompt and clone the repository: `git clone https://github.com/Aiotex/discord-live-channel.git`
-2. [Create a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html) and paste the token in `config.json`
-3. run `npm i`
-4. run `npm start`
+2. run `npm i`
+3. run `npm start`
+4. [Create a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html) and paste the token in the input nox
 
 
 ## Common Errors
@@ -31,7 +31,3 @@ This means you didn't add SoX to your $PATH. You can check by opening the comman
 
 if you are speaking but there isn't any audio playing in discord, try to set your microphone as the default input device in the settings. 
 For windows, Got to `Settings < System < Sound`, and change the input device to the one you currently use.
-
-- Latency when speaking
-
-You might notice a notable delay from when you start talking until the audio is played in the VC. From testing, it seems like the audio is being buffered before it's sent out to discord and I don't think there is a fix for it right now.
