@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/79638013/235369233-018b1e8b-f708-4d98-9ccc-a66235e981fd.png)
 
 
-# discord-live-channel
+# Voice Chat Bot
 This is a discord bot panel that allows you to use a bot like a normal user in a voice chat. you can use the bot panel to join any voice chat in any server the bot is in and hear and speak to people.
 
 ## Requirements
