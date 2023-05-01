@@ -2,7 +2,7 @@
 
 
 # Voice Chat Bot
-This is a discord bot panel that allows you to use a bot like a normal user in a voice chat. you can use the bot panel to join any voice chat in any server the bot is in and hear and speak to people.
+This project is a control panel that enables you to use a Discord bot as a participant in voice chats. You can join voice chats and listen to conversations, as well as use your microphone.
 
 ## Requirements
 - [node.js](https://nodejs.org/en/download/)
