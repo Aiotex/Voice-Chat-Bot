@@ -46,6 +46,7 @@ function setSpeaking(userId, speaking) {
 function leaveCall() {
     participants.empty();
     voiceCallContent.addClass("hidden");
+    latency.addClass("hidden");
     connection.disconnect();
     console.log(`Left \"${voiceChannel.name}\"`); 
 }

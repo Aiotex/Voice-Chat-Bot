@@ -3,7 +3,7 @@
 // Change mute button icon and stop audio recording
 muteBtn.click(() => { 
     if(connection) {
-        if(!muted) { record.stop(); } 
+        if(!muted) { recorder.stop(); } 
         else { streamMicAudio(); }
     }
 
@@ -35,8 +35,3 @@ deafenBtn.click(() => {
 })
 
 disconnectBtn.click(() => { leaveCall(); })
-
-aboutBtn.click(() => {
-    leaveCall();
-    voiceCallContent.hide();
-})

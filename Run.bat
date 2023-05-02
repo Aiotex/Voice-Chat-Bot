@@ -1,2 +1,2 @@
-SETCONSOLE /hide
+npm i
 npm start

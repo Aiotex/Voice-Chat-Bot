@@ -1,7 +1,7 @@
 // Imports
 const { entersState, joinVoiceChannel, getVoiceConnections, createAudioResource, createAudioPlayer, VoiceConnectionStatus, EndBehaviorType, NoSubscriberBehavior, AudioPlayerStatus} = require("@discordjs/voice");
 const { OpusEncoder } = require("@discordjs/opus");
-const record = require('node-mic-record');
+const recorder = require('node-mic-record');
 const AudioMixer = require('audio-mixer');
 const Speaker = require("speaker");
 const fs = require('fs')

@@ -4,7 +4,7 @@ var recordingStartTime, audioStartTime;
 
 function streamMicAudio() {
     const audioPlayer = createAudioPlayer({behaviors: {noSubscriber: NoSubscriberBehavior.Stop}});
-    const inputStream = record.start({sampleRate: 48000, verbose: false});
+    const inputStream = recorder.start({sampleRate: 48000, verbose: false});
     const audioResource = createAudioResource(inputStream);
     recordingStartTime = null;
     audioStartTime = null;

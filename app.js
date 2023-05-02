@@ -1,22 +1,40 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const url = require('url');
 
-let mainWindow;
+let mainWindow, splash;
 
-const createWindow = async () => {
+const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        show: false,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
+            enableRemoteModule: true
         },
         autoHideMenuBar: true,
+        
     });
 
-    await mainWindow.loadFile(path.join(__dirname, 'views/index.html'));
-    //mainWindow.webContents.openDevTools();
+    mainWindow.loadFile(path.join(__dirname, 'views/index.html'));
+
+    splash = new BrowserWindow({ 
+        width: 300, 
+        height: 300, 
+        transparent: true, 
+        frame: false, 
+        alwaysOnTop: true 
+    });
+
+    splash.loadFile(path.join(__dirname, 'views/splash.html'));
+    splash.center();
+
+    mainWindow.webContents.on('did-finish-load', function() {
+        splash.destroy();
+        mainWindow.center();
+        mainWindow.show();
+    });
 };
 
 app.on('ready', createWindow);
