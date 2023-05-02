@@ -6,14 +6,14 @@ This project is a control panel that enables you to use a Discord bot as a parti
 
 ## Requirements
 - [node.js](https://nodejs.org/en/download/)
-- [SoX](https://sourceforge.net/projects/sox/files/latest/download) (make sure you add SoX to your $PATH)
+- [SoX](https://sourceforge.net/projects/sox/files/sox/14.4.2/) (Add it to your $PATH by typing `setx PATH "%PATH%;C:\Program Files (x86)\sox-14-4-2"
+` in Command Prompt
 - [node-gyp](https://github.com/nodejs/node-gyp)
 
 ## Getting Started
-1. Open the command line prompt and clone the repository: `git clone https://github.com/Aiotex/discord-live-channel.git`
-2. Run `npm i`
-3. Click on the `run.bat` file
-4. [Create a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html) and paste the token in the input box
+1. Clone the repository: `git clone https://github.com/Aiotex/discord-live-channel.git`
+2. Click on the `run.bat` file
+3. [Create a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html) and paste the token in the input box
 
 
 ## Common Errors
